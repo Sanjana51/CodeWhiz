@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  codewhiz:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - JUDGE0_API_KEY=f8994713demsh08e33938177a438p11372cjsn8ec41ac16ed9

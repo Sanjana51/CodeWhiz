@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CodeWhiz | Ace DSA with AI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- 🔹 Centered Navbar -->
+  <nav class="center-navbar">
+    <a href="/problems">Problems</a>
+    <a href="https://docs.google.com/spreadsheets/d/1hXserPuxVoWMG9Hs7y8wVdRCJTcj3xMBAEYUOXQ5Xag/edit?gid=0#gid=0" target="_blank" rel="noopener">SDE Sheet</a>
+    <a href="#about-section">About</a>
+    <a href="/login">Login</a>
+    <a href="/signup">Sign Up</a>
+  </nav>
+
+  <!-- 🔥 Hero Section -->
+  <section class="hero-section">
+    <h1 class="hero-title">CodeWhiz</h1>
+    <div class="typing-text"></div>
+    <p class="hero-tagline">Ace DSA with AI-Powered Guidance</p>
+
+    <div class="hero-description">
+      <p>🚀 Practice handpicked FAANG-level problems with real-time AI assistance — explanations, debugging, optimization.</p>
+      <p>💡 Understand logic, fix bugs, and improve your code using step-by-step guidance.</p>
+      <p>📊 Track progress, unlock achievements, and build your coding streak. Designed for all skill levels.</p>
+    </div>
+
+    <div class="hero-buttons">
+      <a href="/signup" class="btn-primary">🚀 Get Started Free</a>
+      <a href="/problems" class="btn-secondary">🔎 Browse Questions</a>
+    </div>
+
+    <div class="hero-features-grid">
+      <div class="feature-item">✅ Debug, Explain & Optimize Instantly</div>
+      <div class="feature-item">📌 Company-Wise Problem Sets</div>
+      <div class="feature-item">📚 Visual Dry Runs & Insights</div>
+      <div class="feature-item">🌐 Python & C++ Code Support</div>
+    </div>
+  </section>
+
+  <!-- ✨ Typing Animation -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const text = "Your Personal DSA Mentor";
+      const typingEl = document.querySelector(".typing-text");
+      let i = 0;
+
+      function typeLoop() {
+        if (i < text.length) {
+          typingEl.textContent += text.charAt(i);
+          i++;
+          setTimeout(typeLoop, 60);
+        }
+      }
+
+      typingEl.textContent = "";
+      typeLoop();
+    });
+  </script>
+
+  <!-- 🔹 Feature Section (Grid Style) -->
+  <section class="features-grid-section" id="about-section">
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <h3>🧠 Smart Explanations</h3>
+        <p>Understand every line of code. CodeWhiz gives AI-powered insights into your logic.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>🐞 Visual Debugging</h3>
+        <p>See where your code fails and why. Step through with variable tracking and dry runs.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>⚙️ Code Optimization</h3>
+        <p>AI suggestions to improve time and space complexity, based on your code.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>🏢 Company-Wise DSA</h3>
+        <p>Problems tagged by company — Amazon, Google, TCS, Infosys, etc. Practice focused!</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>🌐 Multi-language Support</h3>
+        <p>Write code in Python or C++. More languages coming soon!</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>📊 Test Case Insights</h3>
+        <p>Instant test case feedback with pass/fail status, error trace, and output match.</p>
+      </div>
+
+      <!-- 🚀 What's Coming Next -->
+      <div class="feature-card coming-soon">
+        <h3>🚀 What's Coming Next</h3>
+        <p>
+          ✅ Multi-language Support &nbsp;•&nbsp; ✅ Personalized AI Chatbot<br>
+          ✅ Interactive Quizzes &nbsp;•&nbsp; ✅ DSA Dashboard + Analytics
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 🔥 CTA Section -->
+  <section class="cta-section">
+    <h2 class="cta-headline">🚀 Start Your DSA Preparation Today</h2>
+    <p class="cta-subtext">CodeWhiz helps you go from beginner to FAANG-level — one smart step at a time.</p>
+    <a href="/signup" class="cta-btn">Get Started for Free</a>
+  </section>
+
+  <!-- 💡 Demo Preview Section -->
+  <section class="demo-preview">
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2NiZjM0MjZkN2VmYjEyNjMzMmY3MzZjOGY0NjAzYzI5OTYwYjNlYyZjdD1n/hvRJCLFzcasrR4ia7z/giphy.gif"
+         alt="Demo Preview of CodeWhiz AI Interface" />
+    <div class="demo-text">
+      <h3>See It In Action</h3>
+      <p>Watch how CodeWhiz explains, debugs, and optimizes your code in real-time. Visualize test cases and learn better.</p>
+    </div>
+  </section>
+
+</body>
+</html>
+
+

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Add Test Case (JSON API)</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 40px auto; }
+        label { display: block; margin-top: 15px; font-weight: bold; }
+        input, textarea { width: 100%; padding: 8px; margin-top: 5px; }
+        button { margin-top: 20px; padding: 10px 15px; }
+        .message { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h2>Add Test Case for Problem: <span id="problem_slug"></span></h2>
+
+    <label>Input Data:</label>
+    <textarea id="input_data" rows="4" required></textarea>
+
+    <label>Expected Output:</label>
+    <textarea id="expected_output" rows="4" required></textarea>
+
+    <label>Explanation (optional):</label>
+    <textarea id="explanation" rows="3"></textarea>
+
+    <label><input type="checkbox" id="is_sample" /> Is Sample Test Case</label>
+
+    <button onclick="submitTestCase()">Add Test Case</button>
+
+    <div id="message" class="message"></div>
+
+    <script>
+        // Extract problem slug from URL: expected URL /admin/add-testcases/<slug>
+        const pathParts = window.location.pathname.split('/');
+        const slug = pathParts[pathParts.length - 1];
+        document.getElementById('problem_slug').textContent = slug;
+
+        async function submitTestCase() {
+            const input_data = document.getElementById('input_data').value.trim();
+            const expected_output = document.getElementById('expected_output').value.trim();
+            const explanation = document.getElementById('explanation').value.trim();
+            const is_sample = document.getElementById('is_sample').checked;
+
+            if (!input_data || !expected_output) {
+                document.getElementById('message').textContent = "Input Data and Expected Output are required.";
+                document.getElementById('message').style.color = "red";
+                return;
+            }
+
+            const payload = {
+                input_data,
+                expected_output,
+                explanation,
+                is_sample
+            };
+
+            try {
+                const res = await fetch(`/admin/add-testcases/${slug}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const data = await res.json();
+
+                if (res.ok) {
+                    document.getElementById('message').textContent = "✅ Test case added!";
+                    document.getElementById('message').style.color = "green";
+                    // Clear fields
+                    document.getElementById('input_data').value = '';
+                    document.getElementById('expected_output').value = '';
+                    document.getElementById('explanation').value = '';
+                    document.getElementById('is_sample').checked = false;
+                } else {
+                    document.getElementById('message').textContent = `Error: ${data.error}`;
+                    document.getElementById('message').style.color = "red";
+                }
+            } catch (err) {
+                document.getElementById('message').textContent = 'Network error, try again.';
+                document.getElementById('message').style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
+

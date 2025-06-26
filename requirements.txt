@@ -1,0 +1,7 @@
+Flask
+Flask-Dance
+Flask-SQLAlchemy
+
+requests
+python-dotenv
+python-slugify
